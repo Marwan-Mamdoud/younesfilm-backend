@@ -6,7 +6,7 @@ import {
   getProject,
   getProjects,
   updatePorject,
-} from "../Controllers/Project.js";
+} from "../controllers/Project.js";
 const router = Router();
 
 router.get("/get-projects", getProjects);
