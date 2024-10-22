@@ -3,8 +3,11 @@ import mongoose from "mongoose";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import ProjectRoter from "./routes/Project.js";
+const PORT = 4000;
 const app = express();
-
+app.listen(PORT, () => {
+  console.log("Done Connect To Server..");
+});
 mongoose
   .connect(
     "mongodb+srv://marwan:3MW9P5ChWi6esAMz@data.st2xw.mongodb.net/projects"
@@ -31,7 +34,3 @@ app.get("/", (req, res) => {
   return res.status(200).json({ message: "Server is Working Seccussfully." });
 });
 app.use("/api", ProjectRoter);
-
-app.listen(4000, () => {
-  console.log("Done Connect To Server..");
-});
