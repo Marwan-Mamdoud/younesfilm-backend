@@ -3,9 +3,8 @@ import mongoose from "mongoose";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import ProjectRoter from "./routes/Project.js";
-const PORT = 4000;
 const app = express();
-app.listen(PORT, () => {
+app.listen(process.env.PORT || 4000, () => {
   console.log("Done Connect To Server..");
 });
 mongoose
