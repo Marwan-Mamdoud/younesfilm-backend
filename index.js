@@ -21,8 +21,8 @@ mongoose
 const corsOptions = {
   origin: "http://localhost:3000", // النطاق المسموح به
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"],
-  credentials: true, // السماح بإرسال معلومات الاعتماد
+  // allowedHeaders: ["Content-Type", "Authorization"],
+  // credentials: true, // السماح بإرسال معلومات الاعتماد
 };
 
 app.use(cors(corsOptions));
@@ -31,7 +31,6 @@ app.use(express.urlencoded({ extended: true, limit: "50mb" }));
 app.use(express.json({ limit: "50mb" }));
 app.use(cookieParser());
 
-app.use("/uploads", express.static("uploads"));
 app.get("/", (req, res) => {
   return res.status(200).json({ message: "Server is Working Seccussfully." });
 });
