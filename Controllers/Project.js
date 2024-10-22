@@ -108,6 +108,8 @@ export const getProject = async (req, res, next) => {
 
 export const updatePorject = async (req, res, next) => {
   try {
+    console.log(req.body);
+
     const { id } = req.params;
     const {
       name,
@@ -122,17 +124,16 @@ export const updatePorject = async (req, res, next) => {
     } = req.body;
 
     const project = await Model.findById(id);
-    let thumbnail = req.body.thumbnailImage
-      ? await cloudinary.uploader.upload(thumbnailImage, {
-          chunk_size: 30000000,
-        })
-      : null;
+    let thumbnail = null;
+    if (req.body.thumbnailImage !== "undefined") {
+      thumbnail = await cloudinary.uploader.upload(thumbnailImage, {
+        chunk_size: 30000000,
+      });
+      thumbnail = thumbnail.secure_url;
+    }
 
     let images = [];
     let imagesBehindScenes = [];
-    thumbnail = req.body.thumbnailImage
-      ? thumbnail.secure_url
-      : project.thumbnail;
 
     if (req.body.Images.length > 0)
       for (const img of Images) {
