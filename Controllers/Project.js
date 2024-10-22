@@ -130,7 +130,9 @@ export const updatePorject = async (req, res, next) => {
 
     let images = [];
     let imagesBehindScenes = [];
-    thumbnail = req.body.thumbnailImage ? thumbnail.secure_url : null;
+    thumbnail = req.body.thumbnailImage
+      ? thumbnail.secure_url
+      : project.thumbnail;
 
     if (req.body.Images.length > 0)
       for (const img of Images) {
