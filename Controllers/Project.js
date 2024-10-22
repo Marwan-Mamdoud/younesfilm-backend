@@ -1,5 +1,5 @@
 import cloudinary from "../cloudinary.js";
-import Model from "../Models/Project.js";
+import Model from "../models/Project.js";
 
 export const getProjects = async (req, res, next) => {
   try {
