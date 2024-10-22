@@ -7,7 +7,7 @@ export const getProjects = async (req, res, next) => {
     return res.status(200).json({ message: "Done Get Projects", projects });
   } catch (error) {
     console.log(error.message);
-    return res
+    res
       .status(400)
       .json({ error: `Error Get Projects Controller: ${error.message}` });
   }
@@ -70,7 +70,7 @@ export const addProject = async (req, res, next) => {
     });
   } catch (error) {
     console.log(error.message);
-    return res
+    res
       .status(400)
       .json({ error: `Error Create Project Controller: ${error.message}` });
   }
@@ -86,7 +86,7 @@ export const deleteProject = async (req, res, next) => {
         .json({ message: "Done Delete Project Successfully." });
   } catch (error) {
     console.log(error.message);
-    return res
+    res
       .status(400)
       .json({ error: `Error Delete Project Controller: ${error.message}` });
   }
@@ -100,7 +100,7 @@ export const getProject = async (req, res, next) => {
       return res.status(200).json({ message: "Done Get Project", project });
   } catch (error) {
     console.log(error.message);
-    return res
+    res
       .status(400)
       .json({ error: `Error Get One Project Controller: ${error.message}` });
   }
@@ -173,7 +173,7 @@ export const updatePorject = async (req, res, next) => {
       .json({ Message: "Done Update Project Successfully..", project });
   } catch (error) {
     console.log("Error Update Project Controller:", error.message);
-    return res
+    res
       .status(400)
       .json({ error: `Error Get One Project Controller: ${error.message}` });
   }
@@ -199,7 +199,7 @@ export const deleteImage = async (req, res, next) => {
       .json({ message: "Done Delete image from Porject", project });
   } catch (error) {
     console.log("Error Delete Image From  Project Controller:", error.message);
-    return res
+    res
       .status(400)
       .json({ error: `Error Get One Project Controller: ${error.message}` });
   }
