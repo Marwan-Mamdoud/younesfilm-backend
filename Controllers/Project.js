@@ -127,7 +127,7 @@ export const updatePorject = async (req, res, next) => {
     let thumbnail = null;
     if (req.body.thumbnailImage !== "undefined") {
       thumbnail = await cloudinary.uploader.upload(thumbnailImage, {
-        chunk_size: 30000000,
+        format: "webp",
       });
       thumbnail = thumbnail.secure_url;
     }
@@ -138,7 +138,7 @@ export const updatePorject = async (req, res, next) => {
     if (req.body.Images.length > 0)
       for (const img of Images) {
         const result = await cloudinary.uploader.upload(img, {
-          chunk_size: 30000000,
+          format: "webp",
         });
         images.push(result.secure_url);
       }
@@ -146,7 +146,7 @@ export const updatePorject = async (req, res, next) => {
     if (req.body.ImagesBehindScenes.length > 0)
       for (const img of ImagesBehindScenes) {
         const result = await cloudinary.uploader.upload(img, {
-          chunk_size: 30000000,
+          format: "webp",
         });
         imagesBehindScenes.push(result.secure_url);
       }

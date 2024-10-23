@@ -14,7 +14,6 @@
   "routes": [{ "src": "/(.*)", "dest": "/" }],
   "functions": {
     "api/updateProject": {
-      "memory": 1024,
       "maxRequestBodySize": "1gb"
     }
   }
