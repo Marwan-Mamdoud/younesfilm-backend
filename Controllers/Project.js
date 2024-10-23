@@ -27,20 +27,20 @@ export const addProject = async (req, res, next) => {
       reviewBehindScenes,
     } = req.body;
     let thumbnail = await cloudinary.uploader.upload(thumbnailImage, {
-      chunk_size: 30000000,
+      format: "webp",
     });
     let images = [];
     let imagesBehindScenes = [];
     thumbnail = thumbnail.secure_url;
     for (const img of Images) {
       const result = await cloudinary.uploader.upload(img, {
-        chunk_size: 30000000,
+        format: "webp",
       });
       images.push(result.secure_url);
     }
     for (const img of ImagesBehindScenes) {
       const result = await cloudinary.uploader.upload(img, {
-        chunk_size: 30000000,
+        format: "webp",
       });
       imagesBehindScenes.push(result.secure_url);
     }
